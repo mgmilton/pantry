@@ -1,5 +1,3 @@
-require './lib/pantry'
-
 class Recipe
   attr_reader :name, :ingredients
 

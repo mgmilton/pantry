@@ -29,13 +29,14 @@ class Pantry
 
   def print_shopping_list
     keys = @stock.keys
-    @stock.keys.map do |key|
+    shopping_list = @stock.keys.map do |key|
       ingredients = @stock.fetch(key)
          names = ingredients.keys
          names.each do |item|
            p "#{item} : #{ingredients[item]}"
          end
       end
+      shopping_list
   end
 
   def add_to_cookbook(recipe)
@@ -43,9 +44,7 @@ class Pantry
   end
 
   def what_can_i_make
-    @cookbook
-
-    require 'pry' ; binding.pry
+    
   end
 
 end
