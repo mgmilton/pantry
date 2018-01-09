@@ -44,6 +44,8 @@ class Pantry
 
   def what_can_i_make
     @cookbook
+
+    require 'pry' ; binding.pry
   end
 
 end
