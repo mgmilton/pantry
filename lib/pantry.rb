@@ -11,7 +11,8 @@ class Pantry
   def stock_check(item)
     if @stock[item] == nil
       return 0
-    else @stock[item]
+    else
+      @stock[item]
     end
   end
 
@@ -28,7 +29,6 @@ class Pantry
   end
 
   def print_shopping_list
-    keys = @stock.keys
     shopping_list = @stock.keys.map do |key|
       ingredients = @stock.fetch(key)
          names = ingredients.keys
@@ -36,7 +36,7 @@ class Pantry
            p "#{item} : #{ingredients[item]}"
          end
       end
-      shopping_list
+    shopping_list
   end
 
   def add_to_cookbook(recipe)
@@ -44,7 +44,10 @@ class Pantry
   end
 
   def what_can_i_make
-    
+    #this method doesn't work
+    # @cookbook.select do |recipe|
+    #   recipe.name.ingredients.values == amount_required(recipe.name.ingredients.keys)
+    # end
   end
 
 end

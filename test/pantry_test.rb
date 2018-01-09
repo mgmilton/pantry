@@ -60,8 +60,8 @@ class PantryTest < Minitest::Test
     r.add_ingredient("Spaghetti Noodles", 10)
     r.add_ingredient("Marinara Sauce", 10)
     r.add_ingredient("Cheese", 5)
-    pantry.add_to_shopping_list(r)
 
+    pantry.add_to_shopping_list(r)
     assert_equal [{"Cheese"=>20, "Flour"=>20}, {"Spaghetti Noodles"=>10, "Marinara Sauce"=>10, "Cheese"=>5}], pantry.shopping_list
   end
 
