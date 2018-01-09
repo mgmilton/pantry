@@ -8,7 +8,10 @@ class Pantry
   end
 
   def stock_check(item)
-    @stock.fetch(item, 0)
+    if @stock[item] == nil
+      return 0
+    else @stock[item]
+    end
   end
 
   def restock(item, quantity)
@@ -16,15 +19,22 @@ class Pantry
   end
 
   def add_to_shopping_list(recipe)
-    shopping_list = recipe.name
-    @stock[shopping_list] = recipe.ingredients
+    @stock[recipe.name] = recipe.ingredients
   end
 
   def shopping_list
-    items = @stock.values.map do |value|
-       value
-    end
-    items
+    @stock.values
+  end
+
+  def print_shopping_list
+    keys = @stock.keys
+    keys.map do |key|
+      ingredients = @stock.fetch(key)
+         names = ingredients.keys
+         names.each do |item|
+           puts "#{item} : #{ingredients[item]}"
+         end
+      end
   end
 
 end
