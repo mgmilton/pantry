@@ -1,10 +1,11 @@
 require './lib/recipe'
 
 class Pantry
-  attr_reader :stock
+  attr_reader :stock, :cookbook
 
   def initialize
     @stock = {}
+    @cookbook = []
   end
 
   def stock_check(item)
@@ -35,6 +36,14 @@ class Pantry
            p "#{item} : #{ingredients[item]}"
          end
       end
+  end
+
+  def add_to_cookbook(recipe)
+    @cookbook << Recipe.new(recipe)
+  end
+
+  def what_can_i_make
+    @cookbook
   end
 
 end
