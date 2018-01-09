@@ -20,6 +20,7 @@ class RecipeTest < Minitest::Test
   def test_it_tracks_amount_of_a_recipe_required
     r = Recipe.new("Cheese Pizza")
     r.add_ingredient("Flour", 500)
+    r.add_ingredient("Cheese", 1500)
     assert_equal 500, r.amount_required("Flour")
   end
 end
