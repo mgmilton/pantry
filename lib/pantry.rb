@@ -28,11 +28,11 @@ class Pantry
 
   def print_shopping_list
     keys = @stock.keys
-    keys.map do |key|
+    @stock.keys.map do |key|
       ingredients = @stock.fetch(key)
          names = ingredients.keys
          names.each do |item|
-           puts "#{item} : #{ingredients[item]}"
+           p "#{item} : #{ingredients[item]}"
          end
       end
   end
