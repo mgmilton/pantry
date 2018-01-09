@@ -15,12 +15,16 @@ class Pantry
     @stock[item] = quantity + stock_check(item)
   end
 
-  def shopping_list(recipe)
-    recipe.ingredients
+  def add_to_shopping_list(recipe)
+    shopping_list = recipe.name
+    @stock[shopping_list] = recipe.ingredients
   end
 
-  def add_to_shopping_list(recipe)
-
+  def shopping_list
+    items = @stock.values.map do |value|
+       value
+    end
+    items
   end
 
 end
